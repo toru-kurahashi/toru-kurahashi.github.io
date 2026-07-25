@@ -1,7 +1,117 @@
-<html>
-  <head></head>
-  <body>
-    <h1>テストウェサイト</h1>
-    <p>これはテストウェブサイトです。</p>
-  </body>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>My Photography Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #000;
+      color: #fff;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.7);
+      padding: 15px;
+      text-align: center;
+      z-index: 1000;
+    }
+
+    header a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+    }
+
+    .hero {
+      height: 100vh;
+      background: url('https://picsum.photos/1600/900') center/cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2em;
+    }
+
+    section {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 10px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: auto;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #111;
+    }
+
+    input, textarea {
+      width: 80%;
+      padding: 10px;
+      margin: 10px 0;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a href="#home">Home</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+</header>
+
+<div class="hero" id="home">
+  Your Vision
+</div>
+
+<section id="gallery">
+  <h2>Gallery</h2>
+  <div class="gallery">
+    <img src="https://picsum.photos/400/300?1">
+    <img src="https://picsum.photos/400/300?2">
+    <img src="https://picsum.photos/400/300?3">
+    <img src="https://picsum.photos/400/300?4">
+  </div>
+</section>
+
+<section id="about">
+  <h2>About</h2>
+  <p>私は写真家です。自然・ポートレート・都市風景を中心に撮影しています。</p>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <input type="text" placeholder="名前"><br>
+  <input type="email" placeholder="メール"><br>
+  <textarea placeholder="メッセージ"></textarea><br>
+  <button>送信</button>
+</section>
+
+<footer>
+  © 2026 My Portfolio
+</footer>
+
+</body>
 </html>
