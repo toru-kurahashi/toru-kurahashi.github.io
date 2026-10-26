@@ -1,14 +1,298 @@
 <!DOCTYPE html>
-<html lang="ja">
- <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width">
-  <title lang="ja">くらっとのウェブサイト</title>
- </head>
- <body>
-  <article>
-   <h1 lang="ja">くらっとのウェブサイト</h1>
-   <p>このウェブサイトは、くらっとが作成したものです。</p>
-  </article>
- </body>
+<html lang="ja" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>倉橋 徹 教授 | 島根県立大学 プロフィール</title>
+    
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Noto Sans JP (ゴシック体) & Noto Serif JP (明朝体) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome (アイコン用) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans JP"', 'sans-serif'],
+                        serif: ['"Noto Serif JP"', 'serif'],
+                    },
+                    colors: {
+                        primary: '#1e3a8a', // 知的で落ち着いた濃い青（学術的な印象）
+                        secondary: '#3b82f6',
+                        accent: '#eab308',
+                        light: '#f8fafc',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- カスタムCSS (スクロールアニメーション用) -->
+    <style>
+        body { font-family: 'Noto Sans JP', sans-serif; }
+        .font-serif { font-family: 'Noto Serif JP', serif; }
+        
+        /* スクロール時のフェードインアニメーション */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in.appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+
+    <!-- ヘッダー -->
+    <header class="bg-white shadow-sm fixed w-full top-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-building-columns text-primary text-xl"></i>
+                <span class="font-serif font-bold text-lg text-primary tracking-widest">島根県立大学</span>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#about" class="text-sm font-medium text-gray-600 hover:text-primary transition">略歴</a>
+                <a href="#research" class="text-sm font-medium text-gray-600 hover:text-primary transition">研究分野</a>
+                <a href="#passion" class="text-sm font-medium text-gray-600 hover:text-primary transition">教育への情熱</a>
+                <a href="#message" class="text-sm font-medium text-gray-600 hover:text-primary transition">メッセージ</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ヒーローセクション -->
+    <section class="pt-24 pb-12 md:pt-32 md:pb-24 bg-gradient-to-br from-primary to-blue-900 text-white relative overflow-hidden">
+        <!-- 背景の装飾 -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-secondary opacity-10 rounded-full blur-3xl translate-y-1/4 -translate-x-1/4"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col-reverse md:flex-row items-center justify-between gap-12">
+                <!-- 左側：テキスト -->
+                <div class="w-full md:w-3/5 fade-in">
+                    <p class="text-blue-200 text-sm md:text-base font-medium tracking-widest mb-2">国際関係学部 教授</p>
+                    <h1 class="font-serif text-4xl md:text-6xl font-bold mb-4">倉橋 徹</h1>
+                    <p class="text-xl md:text-2xl font-serif text-blue-100 mb-6">Taro Yamada, Ph.D.</p>
+                    <p class="text-lg md:text-xl font-light leading-relaxed mb-8 border-l-4 border-accent pl-4">
+                        「地域を愛し、世界を見据える。<br class="hidden md:block">
+                        次世代のリーダーを育む情熱の教育者。」
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#message" class="bg-white text-primary hover:bg-gray-100 px-6 py-3 rounded-full font-medium transition shadow-lg text-sm md:text-base">
+                            学生へのメッセージを読む
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 右側：プロフィール画像 -->
+                <div class="w-full md:w-2/5 flex justify-center fade-in">
+                    <div class="relative">
+                        <!-- プレースホルダー画像 -->
+                        <img src="https://placehold.co/400x400/e2e8f0/1e3a8a?text=Prof.\nYamada" alt="倉橋 徹 教授" class="w-64 h-64 md:w-80 md:h-80 object-cover rounded-full border-4 border-white shadow-2xl relative z-10">
+                        <!-- 装飾用の円 -->
+                        <div class="absolute inset-0 border-2 border-accent rounded-full scale-105 opacity-50"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 略歴セクション -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 fade-in">
+            <h2 class="text-3xl font-serif font-bold text-center text-primary mb-12 flex items-center justify-center gap-4">
+                <i class="fa-solid fa-address-card text-2xl opacity-80"></i> 略歴
+            </h2>
+            <div class="bg-light p-8 rounded-2xl shadow-sm border border-gray-100 text-gray-700 leading-relaxed text-lg">
+                <p class="mb-4">
+                    島根県生まれ。〇〇大学国際学部を卒業後、英国〇〇大学院にて国際関係論の博士号（Ph.D.）を取得。
+                </p>
+                <p class="mb-4">
+                    国際機関でのインターンシップや、東南アジアでの長期にわたるフィールドワーク調査を経て、20XX年より島根県立大学に着任。現在は国際関係学部教授として教鞭をとる傍ら、地元自治体と連携した地域活性化プロジェクトのアドバイザーも務める。
+                </p>
+                <p>
+                    「グローバルな視点でローカルな課題を解決する（グローカル）」をモットーに、教育と研究の両面で精力的に活動している。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 専門分野・研究内容セクション -->
+    <section id="research" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-serif font-bold text-center text-primary mb-16 flex items-center justify-center gap-4 fade-in">
+                <i class="fa-solid fa-microscope text-2xl opacity-80"></i> 専門分野・研究内容
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- カード1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-md hover:shadow-lg transition-shadow border-t-4 border-primary fade-in">
+                    <div class="w-14 h-14 bg-blue-100 text-primary rounded-full flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-earth-asia"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 font-serif">国際関係論</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        アジア太平洋地域における国家間の協力関係と、非国家アクター（NGO等）の役割について研究。国際社会のダイナミズムをマクロな視点から分析します。
+                    </p>
+                </div>
+
+                <!-- カード2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-md hover:shadow-lg transition-shadow border-t-4 border-accent fade-in" style="transition-delay: 100ms;">
+                    <div class="w-14 h-14 bg-yellow-100 text-accent rounded-full flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-seedling"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 font-serif">地域創生（グローカル）</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        人口減少や高齢化に直面する地方都市（特に島根県内）の課題に対し、海外の成功事例を応用した持続可能なコミュニティ形成のモデル構築を目指しています。
+                    </p>
+                </div>
+
+                <!-- カード3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-md hover:shadow-lg transition-shadow border-t-4 border-secondary fade-in" style="transition-delay: 200ms;">
+                    <div class="w-14 h-14 bg-blue-50 text-secondary rounded-full flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-people-group"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 font-serif">参加型フィールドワーク</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        文献調査だけでなく、実際に地域に入り込み、住民と対話しながら課題を抽出する「アクション・リサーチ」の手法を重視し、実践的な研究を行っています。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 教育への情熱 (なぜ素晴らしい先生なのか) -->
+    <section id="passion" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-serif font-bold text-center text-primary mb-16 fade-in">
+                倉橋教授が「素晴らしい」と言われる理由
+            </h2>
+            
+            <div class="flex flex-col lg:flex-row gap-12 items-center">
+                <!-- 左側：写真プレースホルダー -->
+                <div class="w-full lg:w-1/2 fade-in">
+                    <div class="rounded-2xl overflow-hidden shadow-xl relative">
+                        <img src="https://placehold.co/800x600/cbd5e1/1e3a8a?text=Lecture+Scene" alt="授業風景" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-700">
+                        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent p-6 text-white">
+                            <p class="font-serif text-lg">「学生の主体性を引き出す白熱のゼミナール」</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 右側：テキストとリスト -->
+                <div class="w-full lg:w-1/2 space-y-8">
+                    <!-- ポイント1 -->
+                    <div class="flex gap-4 fade-in">
+                        <div class="flex-shrink-0 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-xl shadow-md">
+                            <i class="fa-solid fa-door-open"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2 font-serif">徹底した「オープン・ドア」ポリシー</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                倉橋教授の研究室は常に学生に開かれています。授業の質問から進路の悩み、個人的な相談まで、一人ひとりに真摯に向き合う姿勢が、学生からの絶大な信頼を集めています。「学生の潜在能力を最大限に引き出すファシリテーター」であることが彼の真骨頂です。
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- ポイント2 -->
+                    <div class="flex gap-4 fade-in" style="transition-delay: 100ms;">
+                        <div class="flex-shrink-0 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-xl shadow-md">
+                            <i class="fa-solid fa-compass"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2 font-serif">机上の空論で終わらせない「実践教育」</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                ゼミナールでは教室を飛び出し、島根県内の過疎地域や企業へ足を運ぶフィールドワークを必修としています。地域の方々と直接語り合い、生の課題に触れることで、学生たちに「生きた学問」を体感させ、社会に出た即戦力となる行動力を養います。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- ポイント3 -->
+                    <div class="flex gap-4 fade-in" style="transition-delay: 200ms;">
+                        <div class="flex-shrink-0 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-xl shadow-md">
+                            <i class="fa-solid fa-comments"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2 font-serif">対話を重視する「双方向型授業」</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                単なる知識の伝達（一方通行の講義）ではなく、学生同士、あるいは教員と学生とのディスカッションを多用します。「正解のない問い」に対して自ら考え、他者の意見を尊重しながら議論を深める力を育てます。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 学生へのメッセージセクション -->
+    <section id="message" class="py-24 bg-primary text-white relative overflow-hidden">
+        <!-- 背景の装飾アイコン -->
+        <i class="fa-solid fa-quote-left text-9xl absolute top-4 left-4 text-white opacity-5"></i>
+        <i class="fa-solid fa-quote-right text-9xl absolute bottom-4 right-4 text-white opacity-5"></i>
+        
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 fade-in">
+            <h2 class="text-3xl md:text-4xl font-serif font-bold mb-10 text-accent">学生へのメッセージ</h2>
+            <div class="text-lg md:text-2xl font-serif leading-loose font-light mb-10 space-y-6">
+                <p>
+                    「大学での4年間は、自分自身と社会との関わりを深く見つめ直す、人生において最も贅沢で貴重な時間です。」
+                </p>
+                <p>
+                    「変化の激しい現代社会において、正解は一つではありません。島根という豊かな自然と歴史を持つこの地で、足元（ローカル）を見つめながら、同時に世界（グローバル）へ視野を広げてください。」
+                </p>
+                <p>
+                    「失敗を恐れず、知的好奇心に身を任せてください。皆さんが新しい価値を創造するための挑戦を、私は全力でサポートします。共に学び、成長しましょう。」
+                </p>
+            </div>
+            <div class="inline-block border-t border-blue-400 pt-6 mt-4">
+                <p class="text-xl font-serif font-bold tracking-widest">倉橋 徹</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="bg-gray-900 text-gray-400 py-10 text-center text-sm">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col items-center">
+            <div class="flex items-center gap-2 mb-4">
+                <i class="fa-solid fa-building-columns text-gray-500"></i>
+                <span class="font-serif tracking-widest text-gray-300">島根県立大学</span>
+            </div>
+            <p>&copy; 2026 Shimane Prefectural University. All Rights Reserved. (仮プロフィールサイト)</p>
+        </div>
+    </footer>
+
+    <!-- スクロールアニメーション用スクリプト -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const faders = document.querySelectorAll('.fade-in');
+            
+            const appearOptions = {
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            };
+            
+            const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('appear');
+                    observer.unobserve(entry.target); // 一度発火したら監視を解除
+                });
+            }, appearOptions);
+            
+            faders.forEach(fader => {
+                appearOnScroll.observe(fader);
+            });
+        });
+    </script>
+</body>
 </html>
